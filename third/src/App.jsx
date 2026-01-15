@@ -5,6 +5,7 @@ import UseState3 from "./UseState3"
 import UseState4 from "./UseState4"
 import UseState5 from "./UseState5"
 import UseState6 from "./UseState6"
+import UseState7 from "./UseState7"
 
 function App() {
 
@@ -13,10 +14,11 @@ function App() {
       {/* <Variable /> */}
       {/* <UseState1 /> */}
       {/* <UseState2 /> */}
-      <UseState3 />
-      <UseState4 />
-      <UseState5 />
+      {/* <UseState3 /> */}
+      {/* <UseState4 /> */}
+      {/* <UseState5 /> */}
       <UseState6 />
+      <UseState7 />
     </div>
   )
 }
