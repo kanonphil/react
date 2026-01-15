@@ -22,9 +22,9 @@ const UseState5 = () => {
   return (
     <div style={{padding: '20px'}}>
       <div style={{marginBottom: '20px', lineHeight: '2'}}>
-        <div><strong>이름 : </strong> {user.name}</div>
-        <div><strong>나이 : </strong> {user.age}</div>
-        <div><strong>주소 : </strong> {user.addr}</div>
+        <div><strong>이름 : {user.name} </strong> </div>
+        <div><strong>나이 : {user.age} </strong> </div>
+        <div><strong>주소 : {user.addr} </strong> </div>
       </div>
       <div style={{display: 'flex', gap: '5px'}}>
         <button onClick={changeName}>이름을 홍길동으로 변경</button>
