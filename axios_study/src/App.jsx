@@ -10,6 +10,7 @@ import ForEach1 from "./ForEach1"
 import ForEach2 from "./ForEach2"
 import ForEach3 from "./ForEach3"
 import ForEach4 from "./ForEach4"
+import EmpAxios1 from "./EmpAxios1"
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
       {/* <ForEach1 /> */}
       {/* <ForEach2 /> */}
       {/* <ForEach3 /> */}
-      <ForEach4 />
+      {/* <ForEach4 /> */}
+      <EmpAxios1 />
     </>
   )
 }

@@ -45,7 +45,7 @@ const ForEach4 = () => {
           </tr>
         </thead>
         <tbody>
-          {stuList.map((stu, index) => (
+          {stuList.map((stu, index) => { return (
             <tr 
               key={stu.stuNum}
               style={{
@@ -56,7 +56,8 @@ const ForEach4 = () => {
               <td style={tdStyle}>{stu.name}</td>
               <td style={tdStyle}>{stu.score}</td>
             </tr>
-          ))}
+            )
+          })}
         </tbody>
       </table>
     </>
