@@ -2,13 +2,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 const ItemList = () => {
-  const [allItems, setAllItems] = useState([])
+  const [itemList, setItemList] = useState([])
 
   const getAllItems = () => {
     axios.get('http://localhost:8080/items')
       .then(response => {
         console.log('성공:', response.data)
-        setAllItems(response.data)
+        setItemList(response.data)
       })
       .catch(e => console.log(e))
   }
@@ -57,7 +57,7 @@ const ItemList = () => {
             </tr>
           </thead>
           <tbody>
-            {allItems.map((item, index) => (
+            {itemList.map((item, index) => (
               <tr key={index}>
                 <td>{item.itemNum}</td>
                 <td>{item.itemName}</td>
@@ -85,7 +85,7 @@ const ItemList = () => {
             </tr>
           </thead>
           <tbody>
-            {allItems.map((item, index) => (
+            {itemList.map((item, index) => (
               <tr key={index}>
                 <td>{item.itemNum}</td>
                 <td>{item.itemName}</td>
