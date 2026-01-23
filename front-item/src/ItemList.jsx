@@ -49,23 +49,35 @@ const ItemList = () => {
         }}>
           <thead>
             <tr>
-              <th>상품번호</th>
-              <th>상품명</th>
-              <th>가격</th>
-              <th>등록일</th>
-              <th>상품소개</th>
+              <th style={{border: '1px solid black'}}>상품번호</th>
+              <th style={{border: '1px solid black'}}>상품명</th>
+              <th style={{border: '1px solid black'}}>가격</th>
+              <th style={{border: '1px solid black'}}>등록일</th>
+              <th style={{border: '1px solid black'}}>상품소개</th>
             </tr>
           </thead>
           <tbody>
-            {itemList.map((item, index) => (
+            {itemList.length > 0 ? (
+              itemList.map((item, index) => (
               <tr key={index}>
-                <td>{item.itemNum}</td>
-                <td>{item.itemName}</td>
-                <td>{item.itemPrice}</td>
-                <td>{item.regDate}</td>
-                <td>{item.itemIntro}</td>
+                <td style={{border: '1px solid black'}}>{item.itemNum}</td>
+                <td style={{border: '1px solid black'}}>{item.itemName}</td>
+                <td style={{border: '1px solid black'}}>{item.itemPrice}</td>
+                <td style={{border: '1px solid black'}}>{item.regDate}</td>
+                <td style={{border: '1px solid black'}}>{item.itemIntro}</td>
               </tr>
-            ))}
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" style={{
+                  border: '1px solid black',
+                  textAlign: 'center',
+                  padding: '20px'
+                }}>
+                  등록된 상품이 없습니다.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
@@ -73,27 +85,38 @@ const ItemList = () => {
       <div>
         <table style={{
           borderCollapse: 'collapse',
-          width: '600px'
+          width: '600px',
         }}>
           <thead>
             <tr>
-              <th>상품번호</th>
-              <th>상품명</th>
-              <th>가격</th>
-              <th>등록일</th>
-              <th>삭제</th>
+              <th style={{border: '1px solid black'}}>상품번호</th>
+              <th style={{border: '1px solid black'}}>상품명</th>
+              <th style={{border: '1px solid black'}}>가격</th>
+              <th style={{border: '1px solid black'}}>등록일</th>
+              <th style={{border: '1px solid black'}}>삭제</th>
             </tr>
           </thead>
           <tbody>
-            {itemList.map((item, index) => (
+            {itemList.length > 0 ? (itemList.map((item, index) => (
               <tr key={index}>
-                <td>{item.itemNum}</td>
-                <td>{item.itemName}</td>
-                <td>{item.itemPrice}</td>
-                <td>{item.regDate}</td>
-                <td><button type="button" onClick={() => deleteItem(item.itemNum)}>삭제</button></td>
+                <td style={{border: '1px solid black'}}>{item.itemNum}</td>
+                <td style={{border: '1px solid black'}}>{item.itemName}</td>
+                <td style={{border: '1px solid black'}}>{item.itemPrice}</td>
+                <td style={{border: '1px solid black'}}>{item.regDate}</td>
+                <td style={{border: '1px solid black'}}><button type="button" onClick={() => deleteItem(item.itemNum)}>삭제</button></td>
               </tr>
-            ))}
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" style={{
+                  border: '1px solid black',
+                  textAlign: 'center',
+                  padding: '20px'
+                }}>
+                  등록된 상품이 없습니다.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
