@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const ItemForm = () => {
+const ItemForm = ({onItemAdded}) => {
   const [data, setData] = useState({
     itemNum: '',
     itemName: '',
@@ -34,13 +34,16 @@ const ItemForm = () => {
 
     axios.post('http://localhost:8080/items', data)
       .then(response => {
-        console.log('성공:', response),
-        alert('상품을 등록하였습니다.'),
+        console.log('성공:', response)
+        alert('상품을 등록하였습니다.')
         setData({
           itemName: '',
           itemPrice: '',
           itemIntro: ''
         })
+        if (onItemAdded) {
+          onItemAdded()
+        }
       })
       .catch(error => console.log('실패:', error))
   }

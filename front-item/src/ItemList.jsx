@@ -45,7 +45,7 @@ const ItemList = () => {
       <div>
         <table style={{
           borderCollapse: 'collapse',
-          width: '600px',
+          width: '400px',
         }}>
           <thead>
             <tr>
@@ -59,11 +59,26 @@ const ItemList = () => {
           <tbody>
             {itemList.length > 0 ? (itemList.map((item, index) => (
               <tr key={index}>
-                <td style={{border: '1px solid black'}}>{item.itemNum}</td>
-                <td style={{border: '1px solid black'}}>{item.itemName}</td>
-                <td style={{border: '1px solid black'}}>{item.itemPrice}</td>
-                <td style={{border: '1px solid black'}}>{item.regDate}</td>
-                <td style={{border: '1px solid black'}}><button type="button" onClick={() => deleteItem(item.itemNum)}>삭제</button></td>
+                <td style={{
+                  border: '1px solid black', 
+                  textAlign: 'center'
+                }}>{item.itemNum}</td>
+                <td style={{
+                  border: '1px solid black',
+                  textAlign: 'center'
+                }}>{item.itemName}</td>
+                <td style={{
+                  border: '1px solid black',
+                  textAlign: 'right'
+                }}>{item.itemPrice}원</td>
+                <td style={{
+                  border: '1px solid black',
+                  textAlign: 'center'
+                }}>{item.regDate}</td>
+                <td style={{
+                  border: '1px solid black',
+                  textAlign: 'center'
+                }}><button type="button" onClick={() => deleteItem(item.itemNum)}>삭제</button></td>
               </tr>
               ))
             ) : (

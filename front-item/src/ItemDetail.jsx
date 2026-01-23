@@ -42,7 +42,10 @@ const ItemDetail = () => {
       paddingLeft: '40px',
     }}>
       {/* 입력한 상품번호를 가진 상품 정보 조회 */}
-      <div style={{ display: 'flex', marginTop: '10px' }}>
+      <div style={{ 
+        display: 'flex', 
+        marginTop: '10px'
+      }}>
         <label style={{
           width: '80px',
           textAlign: 'right',
@@ -55,7 +58,7 @@ const ItemDetail = () => {
           value={data.itemNum}
           onChange={handleChange}
         />
-        <button type="button" onClick={getItemByNum}>조회</button>
+        <button type="button" onClick={getItemByNum} style={{marginLeft: '10px'}}>조회</button>
       </div>
       {itemByNum && (
         <div>

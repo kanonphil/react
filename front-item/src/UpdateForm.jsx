@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const UpdateForm = () => {
+const UpdateForm = ({onItemAdded}) => {
   const [data, setData] = useState({
     itemNum: '',
     itemName: '',
@@ -30,6 +30,9 @@ const UpdateForm = () => {
           itemName: '',
           itemPrice: ''
         })
+        if (onItemAdded) {
+          onItemAdded()
+        }
       })
       .catch(e => console.log(e))
   }
@@ -46,39 +49,77 @@ const UpdateForm = () => {
       {/* 수정 */}
       <div style={{
         display: 'flex',
-        flexDirection: 'column',
-        marginTop: '10px'
+        alignItems: 'center',
+        marginBottom: '10px'
       }}>
-        <div>
-          <label>상품번호</label>
-          <input 
-            type="text" 
-            name="itemNum"
-            value={data.itemNum}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>상품명</label>
-          <input 
-            type="text" 
-            name="itemName"
-            value={data.itemName}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>가격</label>
-          <input 
-            type="text" 
-            name="itemPrice"
-            value={data.itemPrice}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <button type="button" onClick={updateItemByNum}>수정</button>
-        </div>
+        <label style={{
+          width: '80px',
+          textAlign: 'right',
+          marginRight: '10px'
+        }}>상품번호</label>
+        <input 
+          type="text" 
+          name="itemNum"
+          value={data.itemNum}
+          onChange={handleChange}
+          style={{ width: '200px' }}
+        />
+      </div>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '10px'
+      }}>
+        <label style={{
+          width: '80px',
+          textAlign: 'right',
+          marginRight: '10px'
+        }}>상품명</label>
+        <input 
+          type="text" 
+          name="itemName"
+          value={data.itemName}
+          onChange={handleChange}
+          style={{ width: '200px' }}
+        />
+      </div>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '10px'
+      }}>
+        <label style={{
+          width: '80px',
+          textAlign: 'right',
+          marginRight: '10px'
+        }}>가격</label>
+        <input 
+          type="text" 
+          name="itemPrice"
+          value={data.itemPrice}
+          onChange={handleChange}
+          style={{ width: '200px' }}
+        />
+      </div>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginLeft: '90px',
+        width: '200px'
+      }}>
+        <button 
+          type="button" 
+          onClick={updateItemByNum}
+          style={{
+            padding: '5px 20px',
+            backgroundColor: '#87CEEB',
+            border: 'none',
+            borderRadius: '8px',
+            color: 'white',
+            cursor: 'pointer',
+            marginBottom: '10px'
+          }}
+        >수정</button>
       </div>
     </div>
   )
