@@ -41,46 +41,6 @@ const ItemList = () => {
       paddingLeft: '40px',
     }}>
       {/* 전체 조회 table */}
-      <div>
-        <table style={{
-          borderCollapse: 'collapse',
-          width: '600px',
-          marginBottom: '20px'
-        }}>
-          <thead>
-            <tr>
-              <th style={{border: '1px solid black'}}>상품번호</th>
-              <th style={{border: '1px solid black'}}>상품명</th>
-              <th style={{border: '1px solid black'}}>가격</th>
-              <th style={{border: '1px solid black'}}>등록일</th>
-              <th style={{border: '1px solid black'}}>상품소개</th>
-            </tr>
-          </thead>
-          <tbody>
-            {itemList.length > 0 ? (
-              itemList.map((item, index) => (
-              <tr key={index}>
-                <td style={{border: '1px solid black'}}>{item.itemNum}</td>
-                <td style={{border: '1px solid black'}}>{item.itemName}</td>
-                <td style={{border: '1px solid black'}}>{item.itemPrice}</td>
-                <td style={{border: '1px solid black'}}>{item.regDate}</td>
-                <td style={{border: '1px solid black'}}>{item.itemIntro}</td>
-              </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="5" style={{
-                  border: '1px solid black',
-                  textAlign: 'center',
-                  padding: '20px'
-                }}>
-                  등록된 상품이 없습니다.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
       {/* 삭제 */}
       <div>
         <table style={{
