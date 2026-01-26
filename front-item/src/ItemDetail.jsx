@@ -27,9 +27,18 @@ const ItemDetail = () => {
     axios.get(`http://localhost:8080/items/${data.itemNum}`)
       .then(response => {
         console.log(response.data)
+
+        if (!response.data || response.data === null) {
+          alert('해당 번호로 등록된 상품이 없습니다.')
+          setItemByNum(null)
+          return
+        }
+
         setItemByNum(response.data)
       })
-      .catch(e => console.log(e))
+      .catch(e => {
+        console.log(e)
+      })
   }
 
   return (
@@ -61,7 +70,13 @@ const ItemDetail = () => {
         <button type="button" onClick={getItemByNum} style={{marginLeft: '10px'}}>조회</button>
       </div>
       {itemByNum && (
-        <div>
+        <div style={{
+          backgroundColor: 'lightgray',
+          width: '300px',
+          padding: '12px',
+          borderRadius: '10px',
+          marginTop: '10px'
+        }}>
           <p>조회한 상품정보입니다.</p>
           <p>상품번호 : {itemByNum.itemNum}</p>
           <p>상품명 : {itemByNum.itemName}</p>
