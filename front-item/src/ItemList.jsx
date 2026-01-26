@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 const ItemList = () => {
   const [itemList, setItemList] = useState([])
 
-  const getAllItems = () => {
+  const getItemList = () => {
     axios.get('http://localhost:8080/items')
       .then(response => {
         console.log('성공:', response.data)
@@ -14,7 +14,7 @@ const ItemList = () => {
   }
 
   useEffect(() => {
-    getAllItems()
+    getItemList()
   }, [])
 
   const deleteItem = (itemNum) => {
@@ -25,7 +25,7 @@ const ItemList = () => {
     axios.delete(`http://localhost:8080/items/${itemNum}`)
       .then(res => {
         console.log('성공:', res)
-        getAllItems()
+        getItemList()
       })
       .catch(e => console.error(e)
       )
