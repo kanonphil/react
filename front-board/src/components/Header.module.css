@@ -13,3 +13,7 @@
   gap: 12px;
   color: white;
 }
+
+.menu > li {
+  cursor: pointer;
+}

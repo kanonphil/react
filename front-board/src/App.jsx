@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Routes>
         {/* 게시글 목록 페이지 */}
-        <Route path="" element={<BoardList />} />
+        <Route path="/" element={<BoardList />} />
         <Route path="/reg" element={<RegForm />} />
         <Route path="/detail/:boardNum" element={<BoardDetail />} />
         <Route path="/update/:boardNum" element={<UpdateForm />} />

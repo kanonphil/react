@@ -1,0 +1,247 @@
+.board-detail-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.board-detail-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+}
+
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+    color: #666;
+}
+
+/* 게시글 정보 */
+.board-info {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.info-row {
+    display: flex;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row .label {
+    width: 100px;
+    font-weight: bold;
+    color: #333;
+}
+
+.info-row .value {
+    flex: 1;
+    color: #666;
+}
+
+/* 게시글 내용 */
+.board-content {
+    min-height: 200px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* 버튼 그룹 */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.button-group button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.list-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.list-btn:hover {
+    background-color: #5a6268;
+}
+
+.update-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.update-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* 댓글 섹션 */
+.reply-section {
+    margin-top: 30px;
+}
+
+.reply-section h3 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+}
+
+.reply-section h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* 댓글 목록 */
+.reply-list {
+    margin-bottom: 30px;
+}
+
+.reply-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.reply-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.reply-writer {
+    font-weight: bold;
+    color: #333;
+}
+
+.reply-date {
+    font-size: 12px;
+    color: #999;
+}
+
+.reply-content {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.reply-delete-btn {
+    padding: 5px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.reply-delete-btn:hover {
+    background-color: #c82333;
+}
+
+.no-reply {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+}
+
+/* 댓글 작성 폼 */
+.reply-form {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.reply-form .form-group {
+    margin-bottom: 15px;
+}
+
+.reply-form input,
+.reply-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.reply-form input:focus,
+.reply-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.reply-form textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+.reply-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.reply-submit-btn:hover {
+    background-color: #218838;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .board-detail-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+}
