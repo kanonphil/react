@@ -23,6 +23,7 @@ const UpdateForm = () => {
   // 기존 게시글 데이터 불러오기
   const fetchBoardDetail = async () => {
     try {
+      // 조회수 증가x
       const response = await axios.get(`http://localhost:8080/boards/update/${boardNum}`);
       setBoard(response.data);
     } catch (error) {
