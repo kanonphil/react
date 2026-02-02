@@ -1,0 +1,125 @@
+.boardDetailContainer {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.boardDetailContainer h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+}
+
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+    color: #666;
+}
+
+/* 게시글 정보 */
+.boardInfo {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.infoRow {
+    display: flex;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.infoRow:last-child {
+    border-bottom: none;
+}
+
+.infoRow .label {
+    width: 100px;
+    font-weight: bold;
+    color: #333;
+}
+
+.infoRow .value {
+    flex: 1;
+    color: #666;
+}
+
+/* 게시글 내용 */
+.boardContent {
+    min-height: 200px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* 버튼 그룹 */
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.buttonGroup button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.listBtn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.listBtn:hover {
+    background-color: #5a6268;
+}
+
+.updateBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+.updateBtn:hover {
+    background-color: #0056b3;
+}
+
+.deleteBtn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.deleteBtn:hover {
+    background-color: #c82333;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .boardDetailContainer {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+    }
+
+    .buttonGroup button {
+        width: 100%;
+    }
+}

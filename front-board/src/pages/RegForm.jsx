@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './RegForm.css';
+import styles from './RegForm.module.css';
 
 const RegForm = () => {
   const [board, setBoard] = useState({
@@ -45,10 +45,10 @@ const RegForm = () => {
   };
 
   return (
-    <div className="reg-form-container">
+    <div className={styles.regFormContainer}>
       <h2>게시글 작성 페이지</h2>
       
-      <div className="form-group">
+      <div className={styles.formGroup}>
         <label>제목</label>
         <input
           type="text"
@@ -59,7 +59,7 @@ const RegForm = () => {
         />
       </div>
 
-      <div className="form-group">
+      <div className={styles.formGroup}>
         <label>작성자</label>
         <input
           type="text"
@@ -70,7 +70,7 @@ const RegForm = () => {
         />
       </div>
 
-      <div className="form-group">
+      <div className={styles.formGroup}>
         <label>내용</label>
         <textarea
           name="content"
@@ -81,11 +81,11 @@ const RegForm = () => {
         />
       </div>
 
-      <div className="button-group">
-        <button className="submit-btn" onClick={handleSubmit}>
+      <div className={styles.buttonGroup}>
+        <button className={styles.submitBtn} onClick={handleSubmit}>
           글등록
         </button>
-        <button className="cancel-btn" onClick={() => navigate('/')}>
+        <button className={styles.cancelBtn} onClick={() => navigate('/')}>
           취소
         </button>
       </div>

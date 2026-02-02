@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './UpdateForm.css';
+import styles from './UpdateForm.module.css';
 
 const UpdateForm = () => {
   const { boardNum } = useParams();
@@ -82,22 +82,33 @@ const UpdateForm = () => {
   };
 
   return (
-    <div className="update-form-container">
+    <div className={styles.updateFormContainer}>
       <h2>글수정</h2>
       
       {/* 작성자 (원본 데이터 표시) */}
-      <div className="form-group">
+      <div className={styles.formGroup}>
         <label>작성자</label>
         <input
           type="text"
           value={originalBoard.writer}
           disabled
-          className="disabled-input"
+          className={styles.disabledInput}
+        />
+      </div>
+
+      {/* 작성일 (원본 데이터 표시) */}
+      <div className={styles.formGroup}>
+        <label>작성일</label>
+        <input
+          type="text"
+          value={originalBoard.regDate ? new Date(originalBoard.regDate).toLocaleString('ko-KR') : ''}
+          disabled
+          className={styles.disabledInput}
         />
       </div>
 
       {/* 제목 (formData 사용) */}
-      <div className="form-group">
+      <div className={styles.formGroup}>
         <label>제목</label>
         <input
           type="text"
@@ -109,7 +120,7 @@ const UpdateForm = () => {
       </div>
 
       {/* 내용 (formData 사용) */}
-      <div className="form-group">
+      <div className={styles.formGroup}>
         <label>내용</label>
         <textarea
           name="content"
@@ -120,23 +131,12 @@ const UpdateForm = () => {
         />
       </div>
 
-      {/* 작성일 (원본 데이터 표시) */}
-      <div className="form-group">
-        <label>작성일</label>
-        <input
-          type="text"
-          value={originalBoard.regDate ? new Date(originalBoard.regDate).toLocaleString('ko-KR') : ''}
-          disabled
-          className="disabled-input"
-        />
-      </div>
-
       {/* 버튼 그룹 */}
-      <div className="button-group">
-        <button className="submit-btn" onClick={handleSubmit}>
+      <div className={styles.buttonGroup}>
+        <button className={styles.submitBtn} onClick={handleSubmit}>
           수정
         </button>
-        <button className="cancel-btn" onClick={handleCancel}>
+        <button className={styles.cancelBtn} onClick={handleCancel}>
           취소
         </button>
       </div>

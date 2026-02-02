@@ -1,19 +1,17 @@
-.board-list-container {
+.boardListContainer {
     max-width: 1200px;
     margin: 10px auto;
     padding: 20px;
 }
 
-.search-box {
+.searchBox {
     display: flex;
     justify-content: end;
     margin-bottom: 20px;
     gap: 10px;
-    /* margin-top: 10px; */
-    /* margin-right: 10px; */
 }
 
-.search-select {
+.searchSelect {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -22,7 +20,7 @@
     cursor: pointer;
 }
 
-.search-box input {
+.searchBox input {
     width: 200px;
     padding: 8px;
     border: 1px solid #ddd;
@@ -30,7 +28,7 @@
     font-size: 14px;
 }
 
-.search-box button {
+.searchBox button {
     padding: 8px 20px;
     background-color: #6c757d;
     color: white;
@@ -39,43 +37,43 @@
     cursor: pointer;
 }
 
-.search-box button:hover {
+.searchBox button:hover {
     background-color: #4a535b;
 }
 
-.board-table {
+.boardTable {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-.board-table th,
-.board-table td {
+.boardTable th,
+.boardTable td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
-.board-table th {
+.boardTable th {
     background-color: #f8f9fa;
     font-weight: bold;
 }
 
-.board-table tbody tr:hover {
+.boardTable tbody tr:hover {
     background-color: #f8f9fa;
 }
 
-.title-cell {
+.titleCell {
     cursor: pointer;
     text-align: left;
     color: #007bff;
 }
 
-.title-cell:hover {
+.titleCell:hover {
     text-decoration: underline;
 }
 
-.write-btn {
+.writeBtn {
     display: block;
     margin: 0;
     padding: 10px 30px;
@@ -87,18 +85,18 @@
     font-size: 14px;
 }
 
-.write-btn:hover {
+.writeBtn:hover {
     background-color: #0058dd;
 }
 
-.button-group {
+.buttonGroup {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
 }
 
-.list-btn {
+.listBtn {
     padding: 10px 30px;
     margin: 0;
     background-color: #6c757d;
@@ -109,6 +107,6 @@
     font-size: 14px;
 }
 
-.list-btn:hover {
+.listBtn:hover {
     background-color: #4a535b;
 }
