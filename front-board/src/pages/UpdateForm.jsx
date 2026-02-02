@@ -27,7 +27,7 @@ const UpdateForm = () => {
     // 기존 게시글 데이터 불러오기
     const fetchBoardDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/boards/update/${boardNum}`);
+        const response = await axios.get(`http://localhost:8080/boards/${boardNum}/edit`);
         setOriginalBoard(response.data);
         // formData에도 초기값 설정
         setFormData({
@@ -66,7 +66,7 @@ const UpdateForm = () => {
 
     try {
       // 수정할 데이터만 전송
-      await axios.put(`http://localhost:8080/boards/update/${boardNum}`, formData);
+      await axios.put(`http://localhost:8080/boards/${boardNum}`, formData);
       alert('수정되었습니다.');
       navigate(`/detail/${boardNum}`);
     } catch (error) {

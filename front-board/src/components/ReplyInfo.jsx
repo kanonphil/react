@@ -14,11 +14,10 @@ const ReplyInfo = ({boardNum}) => {
     fetchReplyList()
   }, [boardNum])
 
-  // 댓글 목록 조회
   const fetchReplyList = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/boards/reply/list/${boardNum}`
+        `http://localhost:8080/replies/board/${boardNum}`
       )
       setReplyList(response.data)
     } catch (error) {
@@ -26,7 +25,6 @@ const ReplyInfo = ({boardNum}) => {
     }
   }
 
-  // 댓글 입력 처리
   const handleReplyChange = (e) => {
     const {name, value} = e.target
     setReply({
@@ -35,7 +33,6 @@ const ReplyInfo = ({boardNum}) => {
     })
   }
   
-  // 댓글 등록
   const handleReplySubmit = async () => {
     if (!reply.writer.trim()) {
       alert('작성자를 입력하세요.')
@@ -47,7 +44,7 @@ const ReplyInfo = ({boardNum}) => {
     }
 
     try {
-      await axios.post('http://localhost:8080/boards/reply/reg', reply)
+      await axios.post('http://localhost:8080/replies', reply)
       alert('댓글이 등록되었습니다.')
       setReply({
         writer: '',
@@ -61,12 +58,11 @@ const ReplyInfo = ({boardNum}) => {
     }
   }
 
-  // 댓글 삭제
   const handleReplyDelete = async (replyNum) => {
     if (window.confirm('댓글을 삭제하시겠습니까?')) {
       try {
         await axios.delete(
-          `http://localhost:8080/boards/reply/delete/${replyNum}`
+          `http://localhost:8080/replies/${replyNum}`
         )
         alert('댓글이 삭제되었습니다.')
         fetchReplyList()
@@ -86,19 +82,27 @@ const ReplyInfo = ({boardNum}) => {
         {replyList.length > 0 ? (
           replyList.map((reply, index) => (
             <div key={`reply-${reply.replyNum || index}`} className={styles.replyItem}>
-              <div className={styles.replyHeader}>
-                <span className={styles.replyWriter}>{reply.writer}</span>
-                <span className={styles.replyDate}>
-                  {new Date(reply.regDate).toLocaleString('ko-KR')}
-                </span>
+              <div className={styles.profileImage}>
+                <img src="/face-03.jpg" alt="프로필" />
               </div>
-              <div className={styles.replyContent}>{reply.content}</div>
-              <button
-                className={styles.replyDeleteBtn}
-                onClick={() => handleReplyDelete(reply.replyNum)}
-              >
-                삭제
-              </button>
+              
+              <div className={styles.replyBody}>
+                <div className={styles.replyTop}>
+                  <div className={styles.replyInfo}>
+                    <span className={styles.replyWriter}>{reply.writer}</span>
+                    <span className={styles.replyDate}>
+                      {new Date(reply.regDate).toLocaleString('ko-KR')}
+                    </span>
+                  </div>
+                  <button
+                    className={styles.replyDeleteBtn}
+                    onClick={() => handleReplyDelete(reply.replyNum)}
+                  >
+                    삭제
+                  </button>
+                </div>
+                <div className={styles.replyContent}>{reply.content}</div>
+              </div>
             </div>
           ))
         ) : (
@@ -109,27 +113,34 @@ const ReplyInfo = ({boardNum}) => {
       {/* 댓글 작성 폼 */}
       <div className={styles.replyForm}>
         <h4>댓글 작성</h4>
-        <div className={styles.formGroup}>
-          <input
-            type="text"
-            name="writer"
-            value={reply.writer}
-            onChange={handleReplyChange}
-            placeholder="작성자"
-          />
+        <div className={styles.replyFormContent}>
+          <div className={styles.profileImage}>
+            <img src="/face-03.jpg" alt="프로필" />
+          </div>
+          
+          <div className={styles.formInputs}>
+            <input
+              type="text"
+              name="writer"
+              value={reply.writer}
+              onChange={handleReplyChange}
+              placeholder="작성자"
+              className={styles.writerInput}
+            />
+            <div className={styles.contentArea}>
+              <textarea
+                name="content"
+                value={reply.content}
+                onChange={handleReplyChange}
+                placeholder="댓글 내용을 입력하세요"
+                rows="3"
+              />
+              <button className={styles.replySubmitBtn} onClick={handleReplySubmit}>
+                등록
+              </button>
+            </div>
+          </div>
         </div>
-        <div className={styles.formGroup}>
-          <textarea
-            name="content"
-            value={reply.content}
-            onChange={handleReplyChange}
-            placeholder="댓글 내용을 입력하세요"
-            rows="3"
-          />
-        </div>
-        <button className={styles.replySubmitBtn} onClick={handleReplySubmit}>
-          댓글 등록
-        </button>
       </div>
     </div>
   );

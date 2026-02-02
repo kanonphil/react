@@ -1,4 +1,3 @@
-/* CSS Module에서는 kebab-case 대신 camelCase 사용 권장 */
 .replySection {
   margin-top: 40px;
   padding: 20px;
@@ -9,6 +8,7 @@
 .replySection h3 {
   margin-bottom: 20px;
   color: #333;
+  font-size: 18px;
 }
 
 .replyList {
@@ -16,45 +16,80 @@
 }
 
 .replyItem {
+  display: flex;
+  gap: 12px;
   background-color: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
   border: 1px solid #e0e0e0;
 }
 
-.replyHeader {
+/* 프로필 이미지 */
+.profileImage {
+  flex-shrink: 0;
+}
+
+.profileImage img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+/* 댓글 본문 */
+.replyBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.replyTop {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  align-items: flex-start;
   padding-bottom: 8px;
   border-bottom: 1px solid #f0f0f0;
+}
+
+.replyInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .replyWriter {
   font-weight: bold;
   color: #333;
+  font-size: 14px;
 }
 
 .replyDate {
-  font-size: 0.9em;
-  color: #666;
+  font-size: 12px;
+  color: #999;
 }
 
 .replyContent {
   color: #555;
-  line-height: 1.5;
-  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 14px;
+  word-break: break-word;
+  padding: 4px 0;
 }
 
 .replyDeleteBtn {
-  padding: 5px 15px;
+  padding: 4px 12px;
   background-color: #dc3545;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 12px;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
 }
 
 .replyDeleteBtn:hover {
@@ -65,49 +100,118 @@
   text-align: center;
   padding: 40px;
   color: #999;
+  background-color: white;
+  border-radius: 8px;
 }
 
+/* 댓글 작성 폼 */
 .replyForm {
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #e0e0e0;
 }
 
 .replyForm h4 {
   margin-bottom: 15px;
   color: #333;
+  font-size: 16px;
 }
 
-.formGroup {
-  margin-bottom: 10px;
+.replyFormContent {
+  display: flex;
+  gap: 12px;
 }
 
-.formGroup input,
-.formGroup textarea {
-  width: 100%;
-  padding: 10px;
+.formInputs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.writerInput {
+  width: 150px;
+  padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+  transition: border-color 0.2s;
 }
 
-.formGroup textarea {
+.writerInput:focus {
+  outline: none;
+  border-color: #28a745;
+}
+
+.contentArea {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.contentArea textarea {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
   resize: vertical;
+  font-family: inherit;
+  min-height: 80px;
+  transition: border-color 0.2s;
+}
+
+.contentArea textarea:focus {
+  outline: none;
+  border-color: #28a745;
 }
 
 .replySubmitBtn {
-  width: 100%;
-  padding: 12px;
+  padding: 10px 20px;
   background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
+  transition: background-color 0.2s;
+  height: 80px;
+  flex-shrink: 0;
 }
 
 .replySubmitBtn:hover {
   background-color: #218838;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .replyItem {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .profileImage img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .replyFormContent {
+    flex-direction: column;
+  }
+
+  .contentArea {
+    flex-direction: column;
+  }
+
+  .replySubmitBtn {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+  }
+
+  .writerInput {
+    width: 100%;
+  }
 }

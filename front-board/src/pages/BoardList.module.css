@@ -12,6 +12,84 @@
 }
 
 .searchSelect {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    
+    /* 기본 화살표 제거하고 커스텀 화살표 추가 */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 35px;
+}
+
+.searchSelect:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);
+}
+
+.searchSelect:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Option 스타일링 (제한적이지만 가능한 것들) */
+.searchSelect option {
+    padding: 10px;
+    background-color: white;
+    color: #333;
+}
+
+.searchSelect option:hover {
+    background-color: #f8f9fa;
+}
+
+.searchSelect option:checked {
+    background-color: #007bff;
+    color: white;
+}
+
+.searchBox input {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.searchBox input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.searchBox button {
+    padding: 8px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.searchBox button:hover {
+    background-color: #4a535b;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* .searchSelect {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -39,7 +117,7 @@
 
 .searchBox button:hover {
     background-color: #4a535b;
-}
+} */
 
 .boardTable {
     width: 100%;

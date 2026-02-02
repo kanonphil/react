@@ -16,7 +16,7 @@ const BoardDetail = () => {
   const fetchBoardDetail = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/boards/detail/${boardNum}`
+        `http://localhost:8080/boards/${boardNum}`
       );
       setBoard(response.data);
     } catch (error) {
@@ -28,7 +28,7 @@ const BoardDetail = () => {
   const handleDelete = async () => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
       try {
-        await axios.delete(`http://localhost:8080/boards/delete/${boardNum}`);
+        await axios.delete(`http://localhost:8080/boards/${boardNum}`);
         alert('삭제되었습니다.');
         navigate('/');
       } catch (error) {

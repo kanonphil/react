@@ -35,7 +35,7 @@ const RegForm = () => {
     }
 
     try {
-      await axios.post('http://localhost:8080/boards/reg', board);
+      await axios.post('http://localhost:8080/boards', board);
       alert('게시글이 등록되었습니다.');
       navigate('/');
     } catch (error) {

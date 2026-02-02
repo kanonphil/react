@@ -15,7 +15,7 @@ const BoardList = () => {
 
   const fetchBoardList = async (clearKeyword = true) => {
     try {
-      const response = await axios.get('http://localhost:8080/boards/list');
+      const response = await axios.get('http://localhost:8080/boards');
       setBoardList(response.data);
       if (clearKeyword) {
         setKeyword('');
@@ -32,10 +32,9 @@ const BoardList = () => {
     }
     
     try {
-      const response = await axios.get(
-        'http://localhost:8080/boards/search',
-        { params: { searchType, keyword: keyword.trim() } }
-      );
+      const response = await axios.get('http://localhost:8080/boards', { 
+        params: { searchType, keyword: keyword.trim() } 
+      });
       setBoardList(response.data);
     } catch (error) {
       console.error('검색 실패:', error);
