@@ -197,21 +197,21 @@
     height: 40px;
   }
 
-  .replyFormContent {
+  /* .replyFormContent {
     flex-direction: column;
-  }
+  } */
 
-  .contentArea {
+  /* .contentArea {
     flex-direction: column;
-  }
+  } */
 
-  .replySubmitBtn {
+  /* .replySubmitBtn {
     width: 100%;
     height: auto;
     padding: 12px;
-  }
+  } */
 
-  .writerInput {
+  /* .writerInput {
     width: 100%;
-  }
+  } */
 }

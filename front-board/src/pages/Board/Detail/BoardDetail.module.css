@@ -115,11 +115,11 @@
         padding: 20px;
     }
 
-    .buttonGroup {
+    /* .buttonGroup {
         flex-direction: column;
     }
 
     .buttonGroup button {
         width: 100%;
-    }
+    } */
 }
