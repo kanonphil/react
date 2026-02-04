@@ -15,13 +15,15 @@ const BoardList = () => {
 
   const fetchBoardList = async (clearKeyword = true) => {
     try {
-      const response = await axios.get('http://localhost:8080/boards');
+      const response = await axios.get('http://localhost:8080/boards9');
       setBoardList(response.data);
       if (clearKeyword) {
         setKeyword('');
       }
     } catch (error) {
       console.error('게시글 목록 조회 실패:', error);
+      console.log(error.response)
+      console.dir(error)
     }
   };
 
