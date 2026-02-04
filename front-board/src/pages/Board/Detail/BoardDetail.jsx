@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import ReplyInfo from '../components/ReplyInfo';
+import ReplyInfo from '../../../components/Reply/ReplyInfo';
 import styles from './BoardDetail.module.css';
 
 const BoardDetail = () => {

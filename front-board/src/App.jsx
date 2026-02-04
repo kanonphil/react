@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom"
-import BoardList from "./pages/BoardList"
+import BoardList from "./pages/Board/List/BoardList"
 import './reset.css'
-import RegForm from "./pages/RegForm"
-import BoardDetail from "./pages/BoardDetail"
-import UpdateForm from "./pages/UpdateForm"
-import Header from "./components/Header"
+import RegForm from "./pages/Board/RegForm/RegForm"
+import BoardDetail from "./pages/Board/Detail/BoardDetail"
+import UpdateForm from "./pages/Board/UpdateForm/UpdateForm"
+import Header from "./components/Header/Header"
 
 function App() {
   return (
