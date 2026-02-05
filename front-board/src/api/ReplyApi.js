@@ -25,8 +25,8 @@ export const fetchReplyList = async (boardNum) => {
 /**
  * 댓글 등록
  * @param {Object} replyData
- * @param {String} replyData.writer
- * @param {String} replyData.content
+ * @param {string} replyData.writer
+ * @param {string} replyData.content
  * @param {number} replyData.boardNum
  * @returns {Promise<Object>}
  * @throws {Error}
