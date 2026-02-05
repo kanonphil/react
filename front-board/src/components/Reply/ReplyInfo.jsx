@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styles from './ReplyInfo.module.css'
+import { createReply, deleteReply, fetchReplyList } from '../../api/ReplyApi'
 
 const ReplyInfo = ({boardNum}) => {
   const [replyList, setReplyList] = useState([])
@@ -11,19 +12,17 @@ const ReplyInfo = ({boardNum}) => {
   })
 
   useEffect(() => {
-    fetchReplyList()
-  }, [boardNum])
-
-  const fetchReplyList = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8080/replies/board/${boardNum}`
-      )
-      setReplyList(response.data)
-    } catch (error) {
-      console.error('댓글 조회 실패:', error);
+    const loadReplyList = async () => {
+      try {
+        const data = await fetchReplyList(boardNum)
+        setReplyList(data)
+      } catch (error) {
+        console.error('댓글 목록을 불러올 수 없습니다.');
+      }
     }
-  }
+
+    loadReplyList()
+  }, [boardNum])
 
   const handleReplyChange = (e) => {
     const {name, value} = e.target
@@ -44,16 +43,17 @@ const ReplyInfo = ({boardNum}) => {
     }
 
     try {
-      await axios.post('http://localhost:8080/replies', reply)
+      await createReply(reply)
       alert('댓글이 등록되었습니다.')
       setReply({
         writer: '',
         content: '',
         boardNum: boardNum
       })
-      fetchReplyList()
+      
+      const data = await fetchReplyList(boardNum)
+      setReplyList(data)
     } catch (error) {
-      console.error('댓글 등록 실패:', error);
       alert('댓글 등록에 실패했습니다.')
     }
   }
@@ -61,13 +61,11 @@ const ReplyInfo = ({boardNum}) => {
   const handleReplyDelete = async (replyNum) => {
     if (window.confirm('댓글을 삭제하시겠습니까?')) {
       try {
-        await axios.delete(
-          `http://localhost:8080/replies/${replyNum}`
-        )
+        await deleteReply(replyNum)
         alert('댓글이 삭제되었습니다.')
-        fetchReplyList()
+        const data = await fetchReplyList(boardNum)
+        setReplyList(data)
       } catch (error) {
-        console.error('댓글 삭제 실패:', error);
         alert('댓글 삭제에 실패했습니다.')        
       }
     }

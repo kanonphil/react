@@ -197,9 +197,9 @@
     height: 40px;
   }
 
-  /* .replyFormContent {
+  .replyFormContent {
     flex-direction: column;
-  } */
+  }
 
   /* .contentArea {
     flex-direction: column;
