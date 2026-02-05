@@ -1,0 +1,19 @@
+react 프로젝트 생성 명령어 : npm create vite@latest
+생성한 프로젝트에 라이브러리 설치 명령어 : npm i
+프로젝트 실행 명령어 :  npm run dev   ->   o + enter
+프로젝트 재시작 명령어 : r + enter
+프로젝트 종료 명령어 : q + enter
+
+라이브러리 설치
+npm install axios
+npm install react-router-dom
+npm install dayjs      사용법 : dayjs(날짜데이터).format(날짜형식);
+npm install react-daum-postcode    (script : //t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js)
+npm install @reduxjs/toolkit react-redux
+npm install install jwt-decode
+
+spring과 데이터 통신을 위해 리액트 프로젝트 내의 vite.config.js 파일의 내용을 공유폴더에 있는 vite.config.js 내용으로 변경
+
+
+
+
