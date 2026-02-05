@@ -15,7 +15,7 @@ const BoardList = () => {
 
   const fetchBoardList = async (clearKeyword = true) => {
     try {
-      const response = await axios.get('http://localhost:8080/boards9');
+      const response = await axios.get('http://localhost:8080/boards');
       setBoardList(response.data);
       if (clearKeyword) {
         setKeyword('');

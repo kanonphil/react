@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 
 // State 변경함수 코드가 해석되면 
@@ -15,6 +16,17 @@ const UseState1 = () => {
   const [cnt, setCnt] = useState(0)
 
   const [cnt2, setCnt2] = useState(0)
+
+  // 게시글 번호를 저장하는 state 변수
+  const [boardNum, setBoardNum] = useState(1)
+
+  // 게시글 상세조회 함수
+  const getBoardList = () => {
+    setBoardNum(5)
+    // boardNum에는 5가 아닌 1이 들어감 주의
+    axios.get(`http://localhost:8080/boards/${boardNum}`)
+    .then().catch()
+  }
 
   return (
     <div>
