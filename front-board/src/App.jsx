@@ -24,16 +24,16 @@ function App() {
         {/* <UseState2 /> */}
         {/* <Axios1 /> */}
         {/* <Axios2 /> */}
-        <Export1 />
+        {/* <Export1 /> */}
       </div>
       
 
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<BoardList />} />
         <Route path="/reg" element={<RegForm />} />
         <Route path="/detail/:boardNum" element={<BoardDetail />} />
         <Route path="/update/:boardNum" element={<UpdateForm />} />
-      </Routes> */}
+      </Routes>
     </>
   )
 }

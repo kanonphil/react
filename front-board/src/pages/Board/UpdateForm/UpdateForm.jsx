@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import styles from './UpdateForm.module.css';
+import { fetchBoardForEdit, updateBoard } from '../../../api/BoardApi';
 
 const UpdateForm = () => {
   const { boardNum } = useParams();
@@ -25,23 +25,22 @@ const UpdateForm = () => {
 
   useEffect(() => {
     // 기존 게시글 데이터 불러오기
-    const fetchBoardDetail = async () => {
+    const loadBoardDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/boards/${boardNum}/edit`);
-        setOriginalBoard(response.data);
+        const data = await fetchBoardForEdit(boardNum)
+        setOriginalBoard(data)
         // formData에도 초기값 설정
         setFormData({
-          title: response.data.title,
-          content: response.data.content
+          title: data.title,
+          content: data.content
         });
       } catch (error) {
-        console.error('게시글 조회 실패:', error);
         alert('게시글을 불러올 수 없습니다.');
         navigate('/');
       }
     };
 
-    fetchBoardDetail();
+    loadBoardDetail();
   }, [boardNum, navigate]);
 
   // 입력 값 변경 처리 (formData만 업데이트)
@@ -66,11 +65,10 @@ const UpdateForm = () => {
 
     try {
       // 수정할 데이터만 전송
-      await axios.put(`http://localhost:8080/boards/${boardNum}`, formData);
+      await updateBoard(boardNum, formData);
       alert('수정되었습니다.');
       navigate(`/detail/${boardNum}`);
     } catch (error) {
-      console.error('게시글 수정 실패:', error);
       alert('게시글 수정에 실패했습니다.');
     }
   };

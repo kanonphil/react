@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import styles from './RegForm.module.css';
+import { createBoard } from '../../../api/BoardApi';
 
 const RegForm = () => {
   const [board, setBoard] = useState({
@@ -35,11 +35,10 @@ const RegForm = () => {
     }
 
     try {
-      await axios.post('http://localhost:8080/boards', board);
+      await createBoard(board);
       alert('게시글이 등록되었습니다.');
       navigate('/');
     } catch (error) {
-      console.error('게시글 등록 실패:', error);
       alert('게시글 등록에 실패했습니다.');
     }
   };

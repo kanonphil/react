@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import styles from './BoardList.module.css';  // 변경
+import { fetchBoardList } from '../../../api/BoardApi';
 
 const BoardList = () => {
   const [boardList, setBoardList] = useState([]);
@@ -10,23 +10,23 @@ const BoardList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchBoardList();
+    loadBoardList();
   }, []);
 
-  const fetchBoardList = async (clearKeyword = true) => {
+  // API 호출 함수 - 전체 목록 조회
+  const loadBoardList = async (clearKeyword = true) => {
     try {
-      const response = await axios.get('http://localhost:8080/boards');
-      setBoardList(response.data);
+      const data = await fetchBoardList()
+      setBoardList(data)
       if (clearKeyword) {
         setKeyword('');
       }
     } catch (error) {
-      console.error('게시글 목록 조회 실패:', error);
-      console.log(error.response)
-      console.dir(error)
+      alert('게시글 목록을 불러오는데 실패했습니다.')
     }
   };
 
+  // 검색 처리
   const handleSearch = async () => {
     if (!keyword.trim()) {
       fetchBoardList(true);
@@ -34,10 +34,8 @@ const BoardList = () => {
     }
     
     try {
-      const response = await axios.get('http://localhost:8080/boards', { 
-        params: { searchType, keyword: keyword.trim() } 
-      });
-      setBoardList(response.data);
+      const data = await fetchBoardList(searchType, keyword) // API 함수 사용
+      setBoardList(data);
     } catch (error) {
       console.error('검색 실패:', error);
       alert('검색에 실패했습니다.');
@@ -116,7 +114,7 @@ const BoardList = () => {
       <div className={styles.buttonGroup}>
         <button 
           className={styles.listBtn}
-          onClick={fetchBoardList}
+          onClick={() => loadBoardList()}
         >
           전체목록
         </button>

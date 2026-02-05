@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import ReplyInfo from '../../../components/Reply/ReplyInfo';
 import styles from './BoardDetail.module.css';
+import { deleteBoard, fetchBoardDetail } from '../../../api/BoardApi';
 
 const BoardDetail = () => {
   const { boardNum } = useParams();
@@ -10,29 +10,27 @@ const BoardDetail = () => {
   const [board, setBoard] = useState(null);
 
   useEffect(() => {
-    fetchBoardDetail();
-  }, []);
+    const loadBoardDetail = async () => {
+      try {
+        const data = await fetchBoardDetail(boardNum)
+        setBoard(data);
+      } catch (error) {
+        alert('게시글을 불러올 수 없습니다.');
+      }
+    };
 
-  const fetchBoardDetail = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8080/boards/${boardNum}`
-      );
-      setBoard(response.data);
-    } catch (error) {
-      console.error('게시글 조회 실패:', error);
-      alert('게시글을 불러올 수 없습니다.');
-    }
-  };
+    loadBoardDetail();
+  }, [boardNum]);
+
+
 
   const handleDelete = async () => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
       try {
-        await axios.delete(`http://localhost:8080/boards/${boardNum}`);
+        await deleteBoard(boardNum)
         alert('삭제되었습니다.');
         navigate('/');
       } catch (error) {
-        console.error('삭제 실패:', error);
         alert('삭제에 실패했습니다.');
       }
     }

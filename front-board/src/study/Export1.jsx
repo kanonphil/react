@@ -4,6 +4,7 @@ import * as fun from '../util/myMath'
 
 const Export1 = () => {
   const data1 = age;
+  console.log(data1)
   test1()
   console.log(fun.name)
   fun.test2()
