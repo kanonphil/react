@@ -4,7 +4,7 @@ import { createReply, deleteReply, fetchReplyList } from '../../api/ReplyApi'
 
 const ReplyInfo = ({boardNum}) => {
   const [replyList, setReplyList] = useState([])
-  const [reply, setReply] = useState({
+  const [replyData, setReplyData] = useState({
     writer: '',
     content: '',
     boardNum: boardNum
@@ -25,26 +25,26 @@ const ReplyInfo = ({boardNum}) => {
 
   const handleReplyChange = (e) => {
     const {name, value} = e.target
-    setReply({
-      ...reply,
+    setReplyData({
+      ...replyData,
       [name]: value
     })
   }
   
   const handleReplySubmit = async () => {
-    if (!reply.writer.trim()) {
+    if (!replyData.writer.trim()) {
       alert('작성자를 입력하세요.')
       return
     }
-    if (!reply.content.trim()) {
+    if (!replyData.content.trim()) {
       alert('댓글 내용을 입력하세요.')
       return
     }
 
     try {
-      await createReply(reply)
+      await createReply(replyData)
       alert('댓글이 등록되었습니다.')
-      setReply({
+      setReplyData({
         writer: '',
         content: '',
         boardNum: boardNum
@@ -119,7 +119,7 @@ const ReplyInfo = ({boardNum}) => {
             <input
               type="text"
               name="writer"
-              value={reply.writer}
+              value={replyData.writer}
               onChange={handleReplyChange}
               placeholder="작성자"
               className={styles.writerInput}
@@ -127,7 +127,7 @@ const ReplyInfo = ({boardNum}) => {
             <div className={styles.contentArea}>
               <textarea
                 name="content"
-                value={reply.content}
+                value={replyData.content}
                 onChange={handleReplyChange}
                 placeholder="댓글 내용을 입력하세요"
                 rows="3"
